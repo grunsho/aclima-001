@@ -8,39 +8,30 @@ import { NuevoMantenimientoPage } from '../nuevo-mantenimiento/nuevo-mantenimien
 import { ArchivoDeMantenimientosPage } from '../archivo-de-mantenimientos/archivo-de-mantenimientos';
 
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: 'page-inicio',
+  templateUrl: 'inicio.html'
 })
-export class HomePage {
+export class InicioPage {
 
   constructor(public navCtrl: NavController) {
-  }
-  goToProfile(): void {
-    this.navCtrl.push("PerfilPage");
   }
   goToVisitaDeInstalaciN(params){
     if (!params) params = {};
     this.navCtrl.push(VisitaDeInstalaciNPage);
-  }
-  goToNuevaVisita(params){
+  }goToNuevaVisita(params){
     if (!params) params = {};
     this.navCtrl.push(NuevaVisitaPage);
-  }
-  goToArchivoDeVisitas(params){
+  }goToArchivoDeVisitas(params){
     if (!params) params = {};
     this.navCtrl.push(ArchivoDeVisitasPage);
-  }
-  goToMantenimientoPreventivo(params){
+  }goToMantenimientoPreventivo(params){
     if (!params) params = {};
     this.navCtrl.push(MantenimientoPreventivoPage);
-  }
-  goToNuevoMantenimiento(params){
+  }goToNuevoMantenimiento(params){
     if (!params) params = {};
     this.navCtrl.push(NuevoMantenimientoPage);
-  }
-  goToArchivoDeMantenimientos(params){
+  }goToArchivoDeMantenimientos(params){
     if (!params) params = {};
     this.navCtrl.push(ArchivoDeMantenimientosPage);
   }
-
 }

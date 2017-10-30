@@ -1,0 +1,40 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Iniciar Sesión</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form [formGroup]="loginForm" (submit)="loginUser()" novalidate>
+    <ion-item>
+      <ion-label stacked>Email</ion-label>
+      <ion-input formControlName="email" type="email" placeholder="Your email address" [class.invalid]="!loginForm.controls.email.valid && blur">
+      </ion-input>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!loginForm.controls.email.valid &&
+    loginForm.controls.email.dirty">
+      <p>Ingresar un correo válido.</p>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Contraseña</ion-label>
+      <ion-input formControlName="password" type="password" placeholder="Your password" [class.invalid]="!loginForm.controls.password.valid && blur">
+      </ion-input>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!loginForm.controls.password.valid
+    && loginForm.controls.password.dirty">
+      <p>La contraseña debe tener más de 6 caracteres.</p>
+    </ion-item>
+    <button ion-button block type="submit" [disabled]="!loginForm.valid">
+      Iniciar sesión
+    </button>
+  </form>
+  <button ion-button block clear (click)="goToSignup()">
+    Registrarse
+  </button>
+  <button ion-button block clear (click)="goToResetPassword()">
+    Olvidé mi contraseña
+  </button>
+</ion-content>

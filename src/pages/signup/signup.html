@@ -1,0 +1,35 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Registrarse</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <img src="assets/img/banner.jpg" />
+  <form [formGroup]="signupForm" (submit)="signupUser()" novalidate>
+    <ion-item>
+      <ion-label stacked>Email</ion-label>
+      <ion-input formControlName="email" type="email" placeholder="Your email address" [class.invalid]="!signupForm.controls.email.valid && blur">
+      </ion-input>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!signupForm.controls.email.valid
+  && signupForm.controls.email.dirty">
+      <p>Por favor ingrese un correo válido.</p>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Contraseña</ion-label>
+      <ion-input formControlName="password" type="password" placeholder="Your password" [class.invalid]="!signupForm.controls.password.valid && blur">
+      </ion-input>
+    </ion-item>
+    <ion-item class="error-message" *ngIf="!signupForm.controls.password.valid &&
+  signupForm.controls.password.dirty">
+      <p>La contraseña requiere más de 6 caracteres.</p>
+    </ion-item>
+    <button ion-button block type="submit" [disabled]="!signupForm.valid">
+      Registrarse
+    </button>
+  </form>
+</ion-content>
