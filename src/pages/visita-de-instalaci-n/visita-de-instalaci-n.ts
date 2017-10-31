@@ -14,7 +14,8 @@ export class VisitaDeInstalaciNPage {
   goToNuevaVisita(params){
     if (!params) params = {};
     this.navCtrl.push(NuevaVisitaPage);
-  }goToArchivoDeVisitas(params){
+  }
+  goToArchivoDeVisitas(params){
     if (!params) params = {};
     this.navCtrl.push(ArchivoDeVisitasPage);
   }

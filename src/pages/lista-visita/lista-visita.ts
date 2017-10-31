@@ -1,12 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the ListaVisitaPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { IonicPage, NavController } from 'ionic-angular';
+import { VisitaProvider } from '../../providers/visita/visita';
 
 @IonicPage()
 @Component({
@@ -14,12 +8,32 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'lista-visita.html',
 })
 export class ListaVisitaPage {
+  public visitaList: Array<any>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(
+    public navCtrl: NavController,
+    public visitaProvider: VisitaProvider
+  ) { }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ListaVisitaPage');
+    this.visitaProvider.getVisitaList().on("value", visitaListSnapshot => {
+      this.visitaList = [];
+      visitaListSnapshot.forEach(snap => {
+        this.visitaList.push({
+          id: snap.key,
+          name: snap.val().name,
+          rut: snap.val().rut,
+          direccion: snap.val().direccion,
+          telefono: snap.val().telefono,
+          correo: snap.val().correo
+        });
+        return false;
+      });
+    });
+  }
+
+  goToVisitaDetail(visitaId): void {
+    this.navCtrl.push('DetalleVisitaPage', { visitaId: visitaId });
   }
 
 }

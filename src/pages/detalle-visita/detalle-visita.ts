@@ -1,25 +1,30 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { VisitaProvider } from '../../providers/visita/visita';
 
-/**
- * Generated class for the DetalleVisitaPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
-@IonicPage()
+@IonicPage({
+  segment: "visita-detail/:visitaId"
+})
 @Component({
   selector: 'page-detalle-visita',
   templateUrl: 'detalle-visita.html',
 })
 export class DetalleVisitaPage {
+  public currentVisita: any = {};
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public visitaProvider: VisitaProvider
+  ) { }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad DetalleVisitaPage');
+    this.visitaProvider
+      .getVisitaDetail(this.navParams.get("visitaId"))
+      .on("value", visitaSnapshot => {
+        this.currentVisita = visitaSnapshot.val();
+        this.currentVisita.id = visitaSnapshot.key;
+      });
   }
 
 }

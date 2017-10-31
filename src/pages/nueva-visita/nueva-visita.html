@@ -5,42 +5,41 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
-<ion-content padding id="page3">
-  <h5 id="nuevaVisita-heading1" style="color:#000000;">
-    DATOS DEL CLIENTE
-  </h5>
-  <form id="nuevaVisita-form2">
-    <ion-item id="nuevaVisita-input4">
-      <ion-label>
-        Nombre
-      </ion-label>
-      <ion-input type="text" placeholder="" name="nombre-cliente"></ion-input>
+
+<ion-content padding>
+
+  <h5>DATOS DEL CLIENTE</h5>
+
+    <ion-item>
+      <ion-label stacked>Nombre cliente</ion-label>
+      <ion-input [(ngModel)]="nombreClienteVisita" type="text" placeholder="Ingrese nombre del cliente">
+      </ion-input>
     </ion-item>
-    <ion-item id="nuevaVisita-input5">
-      <ion-label>
-        RUT
-      </ion-label>
-      <ion-input type="text" placeholder="" name="rut-cliente"></ion-input>
+
+    <ion-item>
+      <ion-label stacked>RUT</ion-label>
+      <ion-input [(ngModel)]="rutClienteVisita" type="text" placeholder="Ingrese RUT del cliente">
+      </ion-input>
     </ion-item>
-    <ion-item id="nuevaVisita-input6">
-      <ion-label>
-        Dirección
-      </ion-label>
-      <ion-input type="text" placeholder="" name="direccion-cliente"></ion-input>
+
+    <ion-item>
+      <ion-label>Dirección</ion-label>
+      <ion-input [(ngModel)]="direccionClienteVisita" type="text" placeholder="Ingrese dirección del cliente">
+      </ion-input>
     </ion-item>
-    <ion-item id="nuevaVisita-input3">
-      <ion-label>
-        Teléfono
-      </ion-label>
-      <ion-input type="text" placeholder="" name="telefono-cliente"></ion-input>
+
+    <ion-item>
+      <ion-label>Teléfono</ion-label>
+      <ion-input [(ngModel)]="telefonoClienteVisita" type="text" placeholder="Ingrese número telefónico">
+      </ion-input>
     </ion-item>
-    <ion-item id="nuevaVisita-input7">
-      <ion-label>
-        Correo electrónico
-      </ion-label>
-      <ion-input type="text" placeholder="" name="correo-cliente"></ion-input>
+
+    <ion-item>
+      <ion-label>Correo electrónico</ion-label>
+      <ion-input [(ngModel)]="correoClienteVisita" type="text" placeholder="Ingrese correo electrónico para facturación">
+      </ion-input>
     </ion-item>
-  </form>
+
   <h5 id="nuevaVisita-heading2" style="color:#000000;">
     DETALLE DEL ÁREA A CLIMATIZAR
   </h5>
@@ -64,12 +63,13 @@
       <ion-input type="text" placeholder="" name="altura-area"></ion-input>
     </ion-item>
     <div>
-      <img src="assets/img/bePbUH7VTKijyLfhv203_tabla.png" style="display:block;width:100%;height:auto;margin-left:auto;margin-right:auto;" />
+      <img src="assets/img/bePbUH7VTKijyLfhv203_tabla.png" style="display:block;width:100%;height:auto;margin-left:auto;margin-right:auto;"
+      />
     </div>
   </form>
   <form id="nuevaVisita-form4">
     <ion-item>
-      
+
     </ion-item>
   </form>
 </ion-content>

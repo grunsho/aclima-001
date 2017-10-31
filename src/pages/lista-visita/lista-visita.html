@@ -1,18 +1,25 @@
-<!--
-  Generated template for the ListaVisitaPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>ListaVisita</ion-title>
+    <ion-title>Historial de visitas</ion-title>
   </ion-navbar>
-
 </ion-header>
 
-
 <ion-content padding>
-
+  <ion-list>
+    <ion-item *ngFor="let visita of visitaList" (click)="goToVisitaDetail(visita.id)">
+      <h2>{{visita?.name}}</h2>
+      <p>Dirección:
+        <strong>${{visita?.direccion}}</strong>
+      </p>
+      <p>RUT:
+        <strong>{{visita?.rut}}</strong>
+      </p>
+      <p>Teléfono:
+        <strong>{{visita?.telefono}}</strong>
+      </p>
+      <p>Correo electrónico:
+        <strong>{{visita?.correo}}</strong>
+      </p>
+    </ion-item>
+  </ion-list>
 </ion-content>
